@@ -1,0 +1,1 @@
+A chrome extension for walking in someone else's shoes.
