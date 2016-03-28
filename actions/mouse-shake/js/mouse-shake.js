@@ -2,7 +2,8 @@
     
 
     // inject mouse into page
-    document.body.appendChild('<div id="fake-cursor" class="cursor-shake"></div>');
+    document.body.insertAdjacentHTML( 'afterbegin', '<div id="fake-cursor" class="cursor-shake"></div>' );
+
 
     // set initial mouse tracking values
     window.mousePos = {

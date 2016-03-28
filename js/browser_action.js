@@ -8,11 +8,11 @@
 
 			// https://developer.chrome.com/extensions/tabs
 			chrome.tabs.insertCSS(null,
-			    { file : '../actions/mouse-shake/css/mouse-shake.css' }
+			    { file : 'actions/mouse-shake/css/mouse-shake.css' }
 			);
 
 			chrome.tabs.executeScript(null,
-			    { file : "../actions/mouse-shake/js/mouse-shake.js" }
+			    { file : 'actions/mouse-shake/js/mouse-shake.js' }
 			);
 
 			// close the popup

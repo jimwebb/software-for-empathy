@@ -6,11 +6,11 @@ body {
 body, a, input, textarea,
 body * a {
 	 /* disappear the cursor */
-	 cursor: url('art/blank-cursor.png'), auto !important;
+	 cursor: url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/blank-cursor.png'), auto !important;
 }
 
 #fake-cursor {
-	background: transparent url('art/cursor.png');
+	background: transparent url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/cursor.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 14px 20px;
