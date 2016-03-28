@@ -1,0 +1,18 @@
+{
+  "name": "Software for Empathy",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "\"You can only understand people if you feel them in yourself.\" – John Steinbeck",
+  "homepage_url": "http://jimwebb.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "Empathy",
+    "default_popup": "browser_action/browser_action.html"
+  }
+}

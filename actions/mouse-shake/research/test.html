@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+  <style>
+
+  body {
+  	/* handle short pages */
+  	min-height: 100vh;
+  }
+  
+  body, a, input, textarea,
+  body * a {
+  	 /* disappear the cursor */
+  	 cursor: url('art/blank-cursor.png'), auto !important;
+  }
+
+  #fake-cursor {
+  	background: transparent url('art/cursor.png');
+  	background-repeat: no-repeat;
+  	background-position: center center;
+  	background-size: 14px 20px;
+  	width: 14px;
+  	height: 20px;
+  	z-index: 9999;
+  	position: absolute;
+
+	image-rendering: -moz-crisp-edges;         /* Firefox */
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; 
+  }
+
+
+  /* * * * * * * * * * * * * * * * * * * * *\  
+    CSShake :: shake-slow
+    v1.5.0
+    CSS classes to move your DOM
+    (c) 2015 @elrumordelaluz
+    http://elrumordelaluz.github.io/csshake/
+    Licensed under MIT
+  \* * * * * * * * * * * * * * * * * * * * */
+
+  /* .cursor-shake { @include do-shake('cursor-shake', 70, 50, 0, 10s, .015); } */
+
+  .cursor-shake {
+    display: inline-block;
+    transform-origin: center center; }
+
+  @keyframes cursor-shake {
+  1.5% {
+    transform: translate(-34px, -23px) rotate(0); }
+  3% {
+    transform: translate(22px, -19px) rotate(0); }
+  4.5% {
+    transform: translate(32px, -13px) rotate(0); }
+  6% {
+    transform: translate(3px, 23px) rotate(0); }
+  7.5% {
+    transform: translate(17px, 23px) rotate(0); }
+  9% {
+    transform: translate(-21px, 14px) rotate(0); }
+  10.5% {
+    transform: translate(2px, 25px) rotate(0); }
+  12% {
+    transform: translate(-16px, -11px) rotate(0); }
+  13.5% {
+    transform: translate(-18px, 13px) rotate(0); }
+  15% {
+    transform: translate(-23px, 12px) rotate(0); }
+  16.5% {
+    transform: translate(19px, 11px) rotate(0); }
+  18% {
+    transform: translate(-9px, -17px) rotate(0); }
+  19.5% {
+    transform: translate(-30px, 6px) rotate(0); }
+  21% {
+    transform: translate(32px, -17px) rotate(0); }
+  22.5% {
+    transform: translate(-25px, 6px) rotate(0); }
+  24% {
+    transform: translate(-15px, 21px) rotate(0); }
+  25.5% {
+    transform: translate(4px, -4px) rotate(0); }
+  27% {
+    transform: translate(19px, 6px) rotate(0); }
+  28.5% {
+    transform: translate(-31px, 25px) rotate(0); }
+  30% {
+    transform: translate(-11px, -4px) rotate(0); }
+  31.5% {
+    transform: translate(-17px, 13px) rotate(0); }
+  33% {
+    transform: translate(-30px, -7px) rotate(0); }
+  34.5% {
+    transform: translate(-8px, 10px) rotate(0); }
+  36% {
+    transform: translate(14px, -22px) rotate(0); }
+  37.5% {
+    transform: translate(7px, 1px) rotate(0); }
+  39% {
+    transform: translate(13px, 19px) rotate(0); }
+  40.5% {
+    transform: translate(4px, -18px) rotate(0); }
+  42% {
+    transform: translate(27px, 3px) rotate(0); }
+  43.5% {
+    transform: translate(-27px, 19px) rotate(0); }
+  45% {
+    transform: translate(15px, 7px) rotate(0); }
+  46.5% {
+    transform: translate(28px, 8px) rotate(0); }
+  48% {
+    transform: translate(-19px, 9px) rotate(0); }
+  49.5% {
+    transform: translate(-30px, 25px) rotate(0); }
+  51% {
+    transform: translate(-15px, 6px) rotate(0); }
+  52.5% {
+    transform: translate(35px, 20px) rotate(0); }
+  54% {
+    transform: translate(32px, -24px) rotate(0); }
+  55.5% {
+    transform: translate(17px, 21px) rotate(0); }
+  57% {
+    transform: translate(4px, -1px) rotate(0); }
+  58.5% {
+    transform: translate(3px, -1px) rotate(0); }
+  60% {
+    transform: translate(24px, 11px) rotate(0); }
+  61.5% {
+    transform: translate(19px, -11px) rotate(0); }
+  63% {
+    transform: translate(-16px, 3px) rotate(0); }
+  64.5% {
+    transform: translate(-8px, 23px) rotate(0); }
+  66% {
+    transform: translate(14px, -7px) rotate(0); }
+  67.5% {
+    transform: translate(8px, -16px) rotate(0); }
+  69% {
+    transform: translate(-23px, -2px) rotate(0); }
+  70.5% {
+    transform: translate(20px, 12px) rotate(0); }
+  72% {
+    transform: translate(23px, -7px) rotate(0); }
+  73.5% {
+    transform: translate(32px, 14px) rotate(0); }
+  75% {
+    transform: translate(27px, -1px) rotate(0); }
+  76.5% {
+    transform: translate(-28px, 4px) rotate(0); }
+  78% {
+    transform: translate(-30px, 25px) rotate(0); }
+  79.5% {
+    transform: translate(29px, -3px) rotate(0); }
+  81% {
+    transform: translate(35px, 9px) rotate(0); }
+  82.5% {
+    transform: translate(-22px, 22px) rotate(0); }
+  84% {
+    transform: translate(13px, -23px) rotate(0); }
+  85.5% {
+    transform: translate(0px, -8px) rotate(0); }
+  87% {
+    transform: translate(31px, 13px) rotate(0); }
+  88.5% {
+    transform: translate(25px, 7px) rotate(0); }
+  90% {
+    transform: translate(-30px, 0px) rotate(0); }
+  91.5% {
+    transform: translate(-6px, 18px) rotate(0); }
+  93% {
+    transform: translate(33px, 7px) rotate(0); }
+  94.5% {
+    transform: translate(-17px, 20px) rotate(0); }
+  96% {
+    transform: translate(-31px, -12px) rotate(0); }
+  97.5% {
+    transform: translate(32px, -5px) rotate(0); }
+  99% {
+    transform: translate(1px, 25px) rotate(0); }
+  0%, 100% {
+    transform: translate(0, 0) rotate(0); } }
+
+  .cursor-shake {
+    animation-name: cursor-shake;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; }
+
+
+
+
+
+
+  </style>
+
+  <script>
+
+ (function() {
+    
+    // set initial values
+    window.mousePos = {
+        delta: 0,
+        x: 0,
+        y: 0,
+        wiggle_x: 0,
+        wiggle_y: 0
+    };
+   
+    // limit frame rate
+
+    var fps = 15;
+    var now;
+    var then = Date.now();
+    var interval = 1000/fps;
+    var time_delta;
+
+
+    // track the mouse movement and store the result.
+    // this is a separate function because mouse movement can only be captured on the mousemove event.
+    // Thanks to http://stackoverflow.com/questions/7790725/javascript-track-mouse-position
+
+    function trackMouseMove(event) {
+        var dot, eventDoc, doc, body, pageX, pageY;
+
+        event = event || window.event; // IE-ism
+
+        // If pageX/Y aren't available and clientX/Y are,
+        // calculate pageX/Y - logic taken from jQuery.
+        // (This is to support old IE)
+
+        if (event.pageX == null && event.clientX != null) {
+            eventDoc = (event.target && event.target.ownerDocument) || document;
+            doc = eventDoc.documentElement;
+            body = eventDoc.body;
+
+            event.pageX = event.clientX +
+              (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+              (doc && doc.clientLeft || body && body.clientLeft || 0);
+            event.pageY = event.clientY +
+              (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+              (doc && doc.clientTop  || body && body.clientTop  || 0 );
+        }
+
+        // set global variable we'll use
+
+        window.mousePos.delta = Math.abs( mousePos.x - event.pageX ) + Math.abs ( mousePos.y - event.pageY );
+        window.mousePos.x = event.pageX;
+        window.mousePos.y = event.pageY;
+        
+
+    }
+
+
+    function handleMouseAnimation() {
+
+      // testing -- let's just track, without the wiggle.
+
+      var cursor = document.getElementById('fake-cursor');
+
+      // cursor.style.display = 'block';
+      cursor.style.left = ( window.mousePos.x ) + 'px';
+      cursor.style.top = ( window.mousePos.y ) + 'px';
+
+      // keep going!
+      window.requestAnimationFrame(handleMouseAnimation);
+
+      return; 
+
+      // javascript-based wiggle
+
+
+  		now = Date.now();
+  		time_delta = now - then;
+
+  		if (time_delta < interval) {
+        // hang tight, we're not ready to update the wiggle yet.
+  			window.requestAnimationFrame(handleMouseAnimation);
+  		  return;
+  		}
+
+  		then = now - (time_delta % interval);
+
+    	// add some random wiggle!
+
+    	var delta = window.mousePos.delta || 1; 
+    	var wiggle_max = 80; // what's the maximum wiggle?
+    	var wiggle_delta = 3; 
+
+    	// multiply by the delta of the last mouse move
+    	if (Math.abs(window.mousePos.delta) > 0) {
+    		wiggle_delta = wiggle_delta * ( Math.abs(window.mousePos.delta) * 0.7) ;
+    	}
+    	
+    	if (wiggle_delta > wiggle_max) wiggle_delta = wiggle_max;
+
+    	// return Math.floor(Math.random() * (max - min + 1)) + min;
+    	var wiggle_x = Math.floor(Math.random() * ( wiggle_delta + wiggle_delta + 1 ) - wiggle_delta);
+    	var wiggle_y = Math.floor(Math.random() * ( wiggle_delta + wiggle_delta + 1 ) - wiggle_delta);
+
+    	// we can only wiggle so much; make sure the movement is still within our bounds
+    	// console.log(wiggle_x, wiggle_y);
+
+    	if ( Math.abs( wiggle_x + window.mousePos.wiggle_x ) >= (wiggle_max / 2) ) {
+    		window.mousePos.wiggle_x = wiggle_max / 2; 
+    		wiggle_x = -wiggle_max / 2;
+    	}
+
+    	if ( Math.abs( wiggle_y + window.mousePos.wiggle_y ) >= (wiggle_max / 2)) {
+    		window.mousePos.wiggle_y = wiggle_max / 2; 
+    		wiggle_y = -wiggle_max / 2;
+    	}
+    	
+    	window.mousePos.wiggle_x = window.mousePos.wiggle_x + wiggle_x;
+    	window.mousePos.wiggle_y = window.mousePos.wiggle_y + wiggle_y;
+
+    	var cursor = document.getElementById('fake-cursor');
+
+    	cursor.style.display = 'block';
+      cursor.style.left = ( window.mousePos.x + window.mousePos.wiggle_x ) + 'px';
+      cursor.style.top = ( window.mousePos.y + window.mousePos.wiggle_y ) + 'px';
+
+      // keep going!
+      window.requestAnimationFrame(handleMouseAnimation);
+
+    }
+
+
+    
+
+    // Can we detect when the mouse leaves the browser window?
+
+    // http://stackoverflow.com/questions/923299/how-can-i-detect-when-the-mouse-leaves-the-window
+
+    document.onmouseout = handleMouseOut;
+
+    function handleMouseOut (e) {
+        e = e ? e : window.event;
+        var from = e.relatedTarget || e.toElement;
+        if (!from || from.nodeName == "HTML") {
+            // stop your drag event here
+            document.getElementById('fake-cursor').style.display = 'block';
+        }
+    }
+
+
+    // go!
+
+    document.onmousemove = trackMouseMove;
+    window.requestAnimationFrame(handleMouseAnimation);
+
+})();
+
+
+
+  </script>
+
+</head>
+<body>
+
+<h1><a href="">Hello World</a></h1>
+<div id="fake-cursor" class="cursor-shake"></div>
+
+</body>
+</html>

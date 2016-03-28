@@ -1,63 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
-
-  <style>
-
-  body {
-
-  	/* handle short pages */
-  	min-height: 100vh;
-  }
-  
-  body, a, input, textarea,
-  body * a {
-  	 /* disappear the cursor */
-  	 cursor: url('art/blank-cursor.png'), auto !important;
-  }
-
-  #fake-cursor {
-  	background: transparent url('art/cursor.png');
-  	background-repeat: no-repeat;
-  	background-position: center center;
-  	background-size: 14px 20px;
-  	width: 14px;
-  	height: 20px;
-  	z-index: 9999;
-  	position: absolute;
-
-	image-rendering: -moz-crisp-edges;         /* Firefox */
-    image-rendering:   -o-crisp-edges;         /* Opera */
-    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-    image-rendering: crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor; 
-  }
-
-  </style>
-
-  <script>
-
- (function() {
+(function() {
     
-    // Thanks to http://stackoverflow.com/questions/7790725/javascript-track-mouse-position
 
-    document.onmousemove = trackMouseMove;
+    // inject mouse into page
+    document.body.appendChild('<div id="fake-cursor" class="cursor-shake"></div>');
 
-    window.requestAnimationFrame(handleMouseAnimation);
-
-    // set initial values
+    // set initial mouse tracking values
     window.mousePos = {
         delta: 0,
         x: 0,
-        y: 0,
-        wiggle_x: 0,
-        wiggle_y: 0
+        y: 0
     };
+   
+    // limit frame rate
 
+    // var fps = 15;
+    // var now;
+    // var then = Date.now();
+    // var interval = 1000/fps;
+    // var time_delta;
+
+
+    // track the mouse movement and store the result.
+    // this is a separate function because mouse movement can only be captured on the mousemove event.
+    // Thanks to http://stackoverflow.com/questions/7790725/javascript-track-mouse-position
 
     function trackMouseMove(event) {
         var dot, eventDoc, doc, body, pageX, pageY;
@@ -90,26 +55,36 @@
 
     }
 
-    // limit frame rate to 30 FPS
-
-    var fps = 15;
-	var now;
-	var then = Date.now();
-	var interval = 1000/fps;
-	var time_delta;
 
     function handleMouseAnimation() {
 
-		now = Date.now();
-		time_delta = now - then;
+      // New CSS version -- let's just track the cursor
+      // let the CSS handle the shake
 
-		if (time_delta < interval) {
+      var cursor = document.getElementById('fake-cursor');
 
-			window.requestAnimationFrame(handleMouseAnimation);
-		    return;
-		}
+      // cursor.style.display = 'block';
+      cursor.style.left = ( window.mousePos.x ) + 'px';
+      cursor.style.top = ( window.mousePos.y ) + 'px';
 
-		then = now - (time_delta % interval);
+      // keep going!
+      window.requestAnimationFrame(handleMouseAnimation);
+
+      return; 
+
+      // Old javascript-based wiggle
+
+
+  		now = Date.now();
+  		time_delta = now - then;
+
+  		if (time_delta < interval) {
+        // hang tight, we're not ready to update the wiggle yet.
+  			window.requestAnimationFrame(handleMouseAnimation);
+  		  return;
+  		}
+
+  		then = now - (time_delta % interval);
 
     	// add some random wiggle!
 
@@ -129,7 +104,7 @@
     	var wiggle_y = Math.floor(Math.random() * ( wiggle_delta + wiggle_delta + 1 ) - wiggle_delta);
 
     	// we can only wiggle so much; make sure the movement is still within our bounds
-    	console.log(wiggle_x, wiggle_y);
+    	// console.log(wiggle_x, wiggle_y);
 
     	if ( Math.abs( wiggle_x + window.mousePos.wiggle_x ) >= (wiggle_max / 2) ) {
     		window.mousePos.wiggle_x = wiggle_max / 2; 
@@ -147,41 +122,36 @@
     	var cursor = document.getElementById('fake-cursor');
 
     	cursor.style.display = 'block';
-        cursor.style.left = ( window.mousePos.x + window.mousePos.wiggle_x ) + 'px';
-        cursor.style.top = ( window.mousePos.y + window.mousePos.wiggle_y ) + 'px';
+      cursor.style.left = ( window.mousePos.x + window.mousePos.wiggle_x ) + 'px';
+      cursor.style.top = ( window.mousePos.y + window.mousePos.wiggle_y ) + 'px';
 
-        // keep going!
-        window.requestAnimationFrame(handleMouseAnimation);
+      // keep going!
+      window.requestAnimationFrame(handleMouseAnimation);
 
     }
 
 
-	// http://stackoverflow.com/questions/923299/how-can-i-detect-when-the-mouse-leaves-the-window
+    
+
+    // Can we detect when the mouse leaves the browser window?
+
+    // http://stackoverflow.com/questions/923299/how-can-i-detect-when-the-mouse-leaves-the-window
 
     document.onmouseout = handleMouseOut;
 
-	function handleMouseOut (e) {
-	    e = e ? e : window.event;
-	    var from = e.relatedTarget || e.toElement;
-	    if (!from || from.nodeName == "HTML") {
-	        // stop your drag event here
-	        document.getElementById('fake-cursor').style.display = 'block';
+    function handleMouseOut (e) {
+        e = e ? e : window.event;
+        var from = e.relatedTarget || e.toElement;
+        if (!from || from.nodeName == "HTML") {
+            // stop your drag event here
+            document.getElementById('fake-cursor').style.display = 'block';
+        }
+    }
 
-	    }
-	}
 
+    // go!
+
+    document.onmousemove = trackMouseMove;
+    window.requestAnimationFrame(handleMouseAnimation);
 
 })();
-
-
-
-  </script>
-
-</head>
-<body>
-
-<h1><a href="">Hello World</a></h1>
-<div id="fake-cursor"></div>
-
-</body>
-</html>
