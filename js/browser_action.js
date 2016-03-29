@@ -41,5 +41,22 @@
 		
 
 
+	// --------- Dyslexia ----------
+		$('a#dyslexia').on('click', function(e) {
+			e.preventDefault(); 
+
+			chrome.tabs.executeScript(null,
+			    { file : 'actions/dyslexia/js/dyslexia.js' }
+			);
+				
+			// close the popup
+			window.close();
+
+		});
+
+
+
+
+
 	});
 })(jQuery);
