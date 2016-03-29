@@ -7,13 +7,18 @@ body {
   cursor: inherit !important;
 }
 
+/* lots of hacks to be more important than the natural stylesheet */
 body,
 a,
 input,
 textarea,
 body * a,
 *[style],
-* {
+*,
+a:focus,
+a:hover,
+a[href]:focus,
+a[href]:hover {
 	 /* disappear the cursor */
 	 cursor: url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/blank-cursor.png'), auto !important;
 }
@@ -25,7 +30,7 @@ body * a,
 	background-size: 14px 20px;
 	width: 14px;
 	height: 20px;
-	z-index: 9999;
+	z-index: 2147483647; /* http://stackoverflow.com/questions/491052/minimum-and-maximum-value-of-z-index */
 	position: absolute;
   display: none; /* hide at beginning */
 

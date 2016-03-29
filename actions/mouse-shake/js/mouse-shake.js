@@ -71,7 +71,7 @@
           cursor.className = 'cursor-shake cursor-' + cursor.platform;
         }
         
-        if (cursor.style.display == 'none') {
+        if (cursor.style.display !== 'inline-block') {
           cursor.style.display = 'inline-block';
         }
 
