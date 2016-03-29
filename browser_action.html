@@ -1,21 +1,66 @@
 <!doctype html>
-<style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-	}
-	h1 {
-		font-size: 2em;
-	}
-</style>
+<html>
+	<head>
+		<style type="text/css">
+			
+			body {
+				padding: 10px;
+				height: 200px;
+				width: 200px;
+				font-family: Helvetica, Ubuntu, Arial, sans-serif;
+			}
 
-<script src="js/jquery-2.2.2.min.js"></script>
-<script src="js/browser_action.js"></script>
+			h1 {
+				font-size: 1.5em;
+				margin-bottom: 0.5em;
+			}
 
-<div id="mainPopup">
-<ul>
-	<li><a href="#" id="mouse">Activate</a></li>
-</ul>
-</div>
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			li {
+				margin: 0 0 0.5em;
+				padding: 0;
+			}
+
+			li a {
+				text-decoration: none;
+				border: 1px solid #ccc;
+				color: #333;
+				display: block;
+				padding: 0.2em;
+			}
+
+			li a:hover,
+			li a.selected {
+				background-color: #ccc;
+				color: #fff;
+			}
+		</style>
+
+		<script src="js/jquery-2.2.2.min.js"></script>
+		<script src="js/browser_action.js"></script>
+	</head>
+	<body>
+		<h1>Software for Empathy</h1>
+		<ul>
+			<li><a href="#" id="mouse">Shaky Mouse</a>
+				<p>Not everyone's hands are steady.</p>
+			</li>
+
+			<li><a href="#" id="dyslexia">Dyslexia</a>
+				<p>Read with the most common symptoms of dyslexia.</p>
+			</li>
+
+			<li><a href="#" id="dyslexia">Gender Pay Gap</a>
+				<p>Women make 77% of men's pay (USA). Works best on pages with prices.</p>
+			</li>
+
+			<li><a href="#" id="esl">English as a Second Language</a>
+				<p>It's not easy to understand words when they're not your main language. <em>(Experimental)</em></p>
+			</li>
+		</ul>
+	</body>
+</html>
