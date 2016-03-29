@@ -3,14 +3,23 @@ body {
 	min-height: 100vh;
 }
 
-body, a, input, textarea,
-body * a {
+* {
+  cursor: inherit !important;
+}
+
+body,
+a,
+input,
+textarea,
+body * a,
+*[style],
+* {
 	 /* disappear the cursor */
 	 cursor: url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/blank-cursor.png'), auto !important;
 }
 
 #fake-cursor {
-	background: transparent url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/cursor.png');
+	background: transparent url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/cursor-mac.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 14px 20px;
@@ -18,6 +27,7 @@ body * a {
 	height: 20px;
 	z-index: 9999;
 	position: absolute;
+  display: none; /* hide at beginning */
 
   image-rendering: -moz-crisp-edges;         /* Firefox */
   image-rendering:   -o-crisp-edges;         /* Opera */
@@ -26,6 +36,9 @@ body * a {
   -ms-interpolation-mode: nearest-neighbor; 
 }
 
+#fake-cursor.cursor-win {
+  background: transparent url('chrome-extension://__MSG_@@extension_id__/actions/mouse-shake/art/cursor-win.png');
+}
 
 /* * * * * * * * * * * * * * * * * * * * *\  
   CSShake :: shake-slow
@@ -38,9 +51,6 @@ body * a {
 
 /* .cursor-shake { @include do-shake('cursor-shake', 70, 50, 0, 10s, .015); } */
 
-.cursor-shake {
-  display: inline-block;
-  transform-origin: center center; }
 
 @keyframes cursor-shake {
 1.5% {
@@ -179,10 +189,12 @@ body * a {
   transform: translate(0, 0) rotate(0); } }
 
 .cursor-shake {
+  transform-origin: center center;
   animation-name: cursor-shake;
   animation-duration: 10s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
+
 
 
