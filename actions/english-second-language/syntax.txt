@@ -1,10 +1,15 @@
-Syntax! German seems to be fastest
+Syntax! German 
 
-Syntax! German seems to be fastest
-
-https://translate.google.com/translate?sl=de&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fwww.online-translator.com%2FsiteTranslation%2Fautolink%2F%3Fdirection%3Deg%26template%3DGeneral%26sourceURL%3Dhttp%3A%2F%2Fyahoo.com&edit-text=
+https://translate.google.com/translate?sl=de&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fwww.online-translator.com%2FsiteTranslation%2Fautolink%2F%3Fdirection%3Deg%26template%3DGeneral%26sourceURL%3Dhttp%3A%2F%2Fnytimes.com&edit-text=
 
 
 
 
+http://www.online-translator.com/siteTranslation/autolink/?direction=ej&template=General&sourceURL=http://nytimes.com
 
+
+https://translate.google.com/translate?sl=ja&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fwww.online-translator.com%2FsiteTranslation%2Fautolink%2F%3Fdirection%3Dej%26template%3DGeneral%26sourceURL%3Dhttp%3A%2F%2Fnytimes.com&edit-text=
+
+http://www.online-translator.com/siteTranslation/autolink/?direction=ej&template=General&sourceURL=undefined
+
+http://www.online-translator.com/siteTranslation/autolink/?direction=ej&template=General&sourceURL=http://local.theopennotebook.com/wp-login.php?redirect_to=http://local.theopennotebook.com/wp-admin/plugins.php?plugin_status=all&paged=1&s
