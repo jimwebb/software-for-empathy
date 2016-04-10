@@ -1,7 +1,9 @@
 (function() {
     
+load(); 
 
-    // if a fake cursor already exists, exit
+function load() {
+     // if a fake cursor already exists, exit
     if (document.getElementById('fake-cursor')) return;
 
     if (navigator.appVersion.indexOf("Mac") != -1) {
@@ -116,5 +118,13 @@
 
     document.onmousemove = trackMouseMove;
     window.requestAnimationFrame(handleMouseAnimation);
+}
+
+function unload() {
+  // stop animation
+  // remove fake cursor
+  // restore cursor to its previous self
+}
+
 
 })();
