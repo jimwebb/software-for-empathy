@@ -99,7 +99,22 @@
 
 		});
 
+	// --------- Gender Pay Gap ----------
+		$('a#pay-gap').on('click', function(e) {
+			e.preventDefault(); 
 
+			chrome.tabs.insertCSS(null,
+			    { file : 'actions/pay-gap/css/pay-gap.css' }
+			);
+			
+			chrome.tabs.executeScript(null,
+			    { file : 'actions/pay-gap/js/pay-gap.js' }
+			);	
+
+			// close the popup
+			window.close();
+
+		});
 
 
 
