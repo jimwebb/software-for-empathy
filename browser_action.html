@@ -6,83 +6,15 @@
 		<script src="js/browser_action.js"></script>
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold&lang=en">
-
-		<style type="text/css">
-			
-			body {
-				padding: 0;
-                margin: 0;
-				height: 300px;
-				width: 250px;
-				font-family: Roboto, "Helvetica Neue", Helvetica, Ubuntu, Arial, sans-serif;
-              font-size: 13px;
-              line-height: 1.3;
-			}
-
-			h1 {
-				font-size: 1.1em;
-				margin-bottom: 0.5em;
-                padding: 10px;
-                background-color: #3f51b5;
-                color: #fff;
-                box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-                font-weight: normal; 
-                text-transform: uppercase;
-                text-align: center;
-			}
-
-			ul {
-				margin: 0;
-				padding: 0;
-				list-style-type: none;
-			}
-			li {
-                text-align: center;
-                border-bottom: 1px solid #ccc;
-                margin-top: 1.5em;
-                padding: 0 1em;
-              
-			}
-
-            li a {
-              color: inherit;
-              text-decoration: none;
-              border-bottom: 1px dashed #bbb;
-            }
-
-          
-			li .button {
-              border: none;
-              border-radius: 2px;
-              color: #000;
-              padding: 10px 16px;
-              display: inline-block;
-              font-family: "Roboto","Helvetica","Arial",sans-serif;
-              font-size: 1.1em;
-              text-transform: uppercase;
-              transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-              outline: none;
-              cursor: pointer;
-              text-decoration: none;
-              text-align: center;
-              line-height: 1.25;
-              vertical-align: middle;
-              background-color: rgba(158,158,158,.2);
-            }
-          
-
-          
-
-		</style>
-
+		<link rel="stylesheet" href="css/browser_action.css">
 
 	</head>
 	<body>
-		<h1>Select a Simulation</h1>
+		<h1>Choose a Simulation</h1>
         
         <div class="container">
 			<ul>
-				<li class="active"><a href="#" id="blur" class="button">Blurred Vision</a>
+				<li><a href="#" id="blur" class="button">Blurred Vision</a>
 					<p>As we get older, small text gets hard to read. It'll <a href="https://nei.nih.gov/healthyeyes/aging_eye">probably happen to you too.</a></p>
 				</li>
 
@@ -103,6 +35,9 @@
 					<p>One in five US residents doesn't speak English first. <em>(Experimental; can be slow to load.)</em></p>
 				</li>
 
+				<li><a href="https://github.com/jimwebb/software-for-empathy" class="button">About</a>
+					<p>An experiment by <a href="https://jimwebb.com">Jim Webb</a></p>
+				</li>
 
 			</ul>
 		</div>

@@ -1,9 +1,10 @@
 (function($) {
 	$(document).ready(function(){
 
-		$('a').on('click', function(e) {
-			$(this).toggleClass('active');
-		});
+		// $('a').on('click', function(e) {
+		// 	$(this).closest('li').addClass('active');
+		// 	$('li').addClass('inactive');
+		// });
 
 
 		// --------- Shaky Mouse ----------
@@ -12,35 +13,16 @@
 
 			var $this = $(this);
 
-			if (!$this.hasClass('active')) {
+			// https://developer.chrome.com/extensions/tabs
+			chrome.tabs.insertCSS(null,
+			    { file : 'actions/mouse-shake/css/mouse-shake.css' }
+			);
+			chrome.tabs.executeScript(null,
+			    { file : 'actions/mouse-shake/js/mouse-shake.js' }
+			);
 
-				// https://developer.chrome.com/extensions/tabs
-				chrome.tabs.insertCSS(null,
-				    { file : 'actions/mouse-shake/css/mouse-shake.css' }
-				);
-				chrome.tabs.executeScript(null,
-				    { file : 'actions/mouse-shake/js/mouse-shake.js' }
-				);
-
-				// close the popup
-				window.close();
-
- 			} else {
-				
-				// reload the page
-				chrome.tabs.query( { currentWindow: true, active: true, lastFocusedWindow: true }, function (tab) {
-
-					var current_tab = tab[0];
-
-					var url = current_tab.url;
-
-					chrome.tabs.update( current_tab.id, { url : url });
-					
-					// close the popup
-					window.close();
-				});
-
- 			}
+			// close the popup
+			window.close();
 
 		});
 

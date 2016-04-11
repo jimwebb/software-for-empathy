@@ -1,0 +1,63 @@
+body {
+	padding: 0;
+  margin: 0;
+	height: 350px;
+	width: 250px;
+	font-family: Roboto, "Helvetica Neue", Helvetica, Ubuntu, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+h1 {
+	font-size: 1.1em;
+	margin-bottom: 0.5em;
+  padding: 10px;
+  background-color: #c61313;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  font-weight: bold; 
+  text-transform: uppercase;
+  text-align: center;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+li {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-top: 1.5em;
+  padding: 0 1em;  
+}
+
+li a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed #bbb;
+}
+
+li .button {
+  border: none;
+  border-radius: 2px;
+  color: #000;
+  padding: 10px 16px;
+  display: inline-block;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.25;
+  vertical-align: middle;
+  background-color: rgba(158,158,158,.2);
+}
+
+li.inactive {
+  opacity: 0.5;
+} 
