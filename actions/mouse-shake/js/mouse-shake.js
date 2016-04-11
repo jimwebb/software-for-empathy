@@ -1,6 +1,14 @@
+// This might have already been loaded; if so, refresh the page
+if (document.body.classList.contains('shaky-mouse')) {
+  window.location.reload();
+}
+
+
 (function() {
     
 load(); 
+
+document.body.classList.toggle('shaky-mouse');
 
 function load() {
      // if a fake cursor already exists, exit

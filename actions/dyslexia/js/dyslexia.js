@@ -10,9 +10,17 @@
 // http://dyslexia.learninginfo.org/symptoms.htm 
 
 
+// This might have already been loaded; if so, refresh the page
+if (document.body.classList.contains('dyslexic')) {
+	window.location.reload();
+}
+
+
 // Thanks to http://www.donaldjdrumpf.com/ for humor and code
+
 (function() {
 
+document.body.classList.toggle('dyslexic');
 
 walk(document.body);
 
