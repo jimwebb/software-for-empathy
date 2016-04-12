@@ -1,6 +1,6 @@
 {
   "name": "Software for Empathy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "description": "Manipulates the current web page to simulate conditions you may not normally experience, but many people do.",
   "homepage_url": "https://github.com/jimwebb/software-for-empathy",
