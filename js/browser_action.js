@@ -1,12 +1,6 @@
 (function($) {
 	$(document).ready(function(){
 
-		// $('a').on('click', function(e) {
-		// 	$(this).closest('li').addClass('active');
-		// 	$('li').addClass('inactive');
-		// });
-
-
 		// --------- Shaky Mouse ----------
 		$('a#mouse').on('click', function(e) {
 			e.preventDefault(); 
@@ -38,7 +32,12 @@
 
 				var url = current_tab.url;
 
+				/* // Japanese 
+
 				var translation = 'https://translate.google.com/translate?sl=ja&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fwww.online-translator.com%2FsiteTranslation%2Fautolink%2F%3Fdirection%3Dej%26template%3DGeneral%26sourceURL%3D' + encodeURI(url) + '&edit-text=';
+				*/
+
+				var translation = 'https://translate.google.com/translate?sl=pt&tl=en&js=y&prev=_t&hl=en&ie=UTF-8&u=http%3A%2F%2Fwww.online-translator.com%2FsiteTranslation%2Fautolink%2F%3Fdirection%3Dep%26template%3DGeneral%26sourceURL%3D' + encodeURI(url) + '&edit-text=';
 
 				chrome.tabs.update( current_tab.id, { url : translation });
 				
@@ -97,6 +96,22 @@
 			window.close();
 
 		});
+
+   // ---------- Any links to actual pages ---------
+
+   $('a').on('click', function(e){
+   	e.preventDefault();
+
+   	var $this = $(this);
+   	var href = $this.prop('href');
+
+   	if (href.indexOf('http') !== -1) {
+     chrome.tabs.create({url: href});
+   	}
+
+   });
+		
+	
 
 
 
