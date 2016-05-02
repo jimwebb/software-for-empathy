@@ -14,15 +14,17 @@ function load() {
      // if a fake cursor already exists, exit
     if (document.getElementById('fake-cursor')) return;
 
-    if (navigator.appVersion.indexOf("Mac") != -1) {
-      var platform = "mac";
-    } else {
-      var platform = "win";
-      // sorry linux
-    }
+    // well, it turns out the Mac and Win cursors are pretty darn similar after all. No need to make them different. 
+
+    // if (navigator.appVersion.indexOf("Mac") != -1) {
+    //   var platform = "mac";
+    // } else {
+    //   var platform = "win";
+    //   // sorry linux
+    // }
 
     // inject mouse into page
-    document.body.insertAdjacentHTML( 'afterbegin', '<div id="fake-cursor" class="cursor-shake cursor-' + platform + '"></div>' );
+    document.body.insertAdjacentHTML( 'afterbegin', '<div id="fake-cursor" class="cursor-shake"></div>' );
 
     // set initial mouse tracking values
     var mousePos = {
